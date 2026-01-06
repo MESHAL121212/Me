@@ -2,50 +2,97 @@
 <html lang="ar" dir="rtl">
 <head>
     <script src="https://3nbf4.com/act/files/tag.min.js?z=10427764" data-cfasync="false" async></script>
-    
     <script>(function(s){s.dataset.zone='10427784',s.src='https://nap5k.com/tag.min.js'})([document.documentElement, document.body].filter(Boolean).pop().appendChild(document.createElement('script')))</script>
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Meshal Hub | 7ooa</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
     <style>
         body {
             background-color: #0a0a0a;
             color: #00d4ff;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             text-align: center;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            height: 100vh;
             margin: 0;
+            padding-bottom: 50px;
         }
-        .container { border: 2px solid #00d4ff; padding: 40px; border-radius: 20px; box-shadow: 0 0 20px #00d4ff; display: inline-block; margin: auto; }
-        h1 { font-size: 3rem; text-transform: uppercase; letter-spacing: 5px; }
-        .btn {
-            background: transparent;
-            color: #00d4ff;
-            border: 2px solid #00d4ff;
-            padding: 10px 25px;
-            text-decoration: none;
-            font-weight: bold;
-            border-radius: 5px;
-            transition: 0.3s;
-            margin: 5px;
-            display: inline-block;
-        }
-        .btn:hover { background: #00d4ff; color: #000; box-shadow: 0 0 20px #00d4ff; }
+        nav { background: #111; padding: 15px; position: sticky; top: 0; border-bottom: 2px solid #00d4ff; z-index: 1000; }
+        .nav-btn { background: none; border: 1px solid #00d4ff; color: #00d4ff; padding: 8px 20px; cursor: pointer; margin: 0 5px; border-radius: 5px; transition: 0.3s; }
+        .nav-btn.active { background: #00d4ff; color: #000; }
+        
+        .section { display: none; padding: 40px 20px; min-height: 70vh; }
+        .section.active { display: block; animation: fadeIn 0.5s; }
+        
+        .card { background: #111; border: 1px solid #00d4ff; padding: 20px; border-radius: 15px; margin: 10px auto; max-width: 500px; box-shadow: 0 0 15px rgba(0,212,255,0.2); }
+        .skill { font-size: 1.5rem; margin: 15px 0; }
+        .script-card img { width: 100%; border-radius: 10px; margin-bottom: 10px; border: 1px solid #333; }
+        
+        .social-links a { color: #00d4ff; margin: 0 10px; font-size: 1.2rem; text-decoration: none; }
+        footer { border-top: 1px solid #333; padding: 20px; font-size: 0.9rem; color: #666; }
+        
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Dev: 7oo</h1>
-        <p>قريباً.. أقوى سكربتات روبلوكس</p>
-        <br>
-        <a href="https://tiktok.com/5cas" class="btn">tiktok</a>
-        <a href="mailto:support@7ooa.xyz" class="btn">EMAIL</a>
+
+    <nav>
+        <button class="nav-btn active" onclick="showSection('about')">معلوماتي</button>
+        <button class="nav-btn" onclick="showSection('scripts')">سكربتاتي</button>
+    </nav>
+
+    <div id="about" class="section active">
+        <div class="card">
+            <h1>Dev: 7oo</h1>
+            <p>مبرمج متخصص في تطوير الأدوات والسكربتات</p>
+            <hr style="border-color:#00d4ff">
+            <h3>لغات البرمجة</h3>
+            <div class="skill">
+                <i class="fas fa-code" style="color: #00d4ff;"></i> Lua (لوا)
+            </div>
+            <div class="skill">
+                <i class="fab fa-python" style="color: #ffe873;"></i> Python (بايثون)
+            </div>
+        </div>
     </div>
 
+    <div id="scripts" class="section">
+        <h2>سكربتاتي (روبلوكس)</h2>
+        <div class="card script-card">
+            <img src="https://via.placeholder.com/400x200/111/00d4ff?text=Blox+Fruits" alt="Blox Fruits">
+            <h3>Blox Fruits Script</h3>
+            <p>أوتو فارم، كستوم هب، والمزيد..</p>
+            <a href="#" class="nav-btn">نسخ السكربت</a>
+        </div>
+        
+        <div class="card script-card">
+            <img src="https://via.placeholder.com/400x200/111/00d4ff?text=Brookhaven" alt="Brookhaven">
+            <h3>Brookhaven Troll</h3>
+            <p>تفعيل جميع المميزات المدفوعة مجاناً</p>
+            <a href="#" class="nav-btn">نسخ السكربت</a>
+        </div>
+    </div>
+
+    <footer>
+        <div class="social-links">
+            <a href="https://tiktok.com/@5sac"><i class="fab fa-tiktok"></i> 5sac</a>
+            <a href="#"><i class="fab fa-discord"></i> 95or</a>
+            <a href="mailto:support@7ooa.xyz"><i class="fas fa-envelope"></i> تواصل معي</a>
+        </div>
+        <br>
+        <p>جميع الحقوق محفوظة 2026 © Meshal Hub</p>
+    </footer>
+
+    <script>
+        function showSection(sectionId) {
+            document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+            document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+            document.getElementById(sectionId).classList.add('active');
+            event.target.classList.add('active');
+        }
+    </script>
     <script src="sw.js"></script>
 </body>
 </html>
+
