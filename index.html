@@ -1,24 +1,18 @@
-</body>
-</html>
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     
-    <title>7oo | Portfolio</title>
-    <meta name="description" content="مشعل (7oo) - مبرمج محترف متخصص في Lua و Python والأتمتة والأنظمة الخلفية.">
-    <meta property="og:title" content="7oo | Portfolio">
-    <meta property="og:description" content="Professional Programmer | Lua & Python">
+    <title>7oo | Meshal Hub</title>
+    <meta name="description" content="مشعل (7oo) - مطور سكربتات Meshal Hub لـ Roblox وأنظمة الأتمتة.">
+    <meta property="og:title" content="7oo | Meshal Hub Scripts">
+    <meta property="og:description" content="Professional Roblox Scripts | Shoot The Boss & Aura Tower">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://7oo.xyz">
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;700;800&display=swap" as="style">
-    <link rel="preload" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap" as="style">
-
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💻</text></svg>">
-
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;700;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
@@ -75,16 +69,24 @@
         .hero h1 span.highlight { color: var(--primary); }
         .hero h1 span.name-tag { font-weight: 300; font-size: 0.4em; color: var(--text-dim); margin-right: 10px; }
 
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; margin-top: 40px; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 25px; margin-top: 40px; }
         .card { background: var(--card-bg); padding: 40px 30px; border-radius: 24px; border: 1px solid rgba(255,255,255,0.05); transition: var(--transition); text-align: center; }
         .card:hover { transform: translateY(-12px); border-color: var(--primary); }
         .card i { font-size: 45px; color: var(--primary); margin-bottom: 20px; display: block; }
         
-        .section-title { font-size: 2.5rem; font-weight: 800; border-right: 4px solid var(--primary); padding-right: 15px; }
+        /* Script Card Elements */
+        .script-card h3 { margin-bottom: 15px; font-size: 1.4rem; }
+        .script-card p { font-size: 0.9rem; margin-bottom: 20px; min-height: 45px; }
+        .btn-copy {
+            width: 100%; background: rgba(123, 92, 255, 0.1); border: 1px dashed var(--primary);
+            color: var(--primary); padding: 12px; border-radius: 12px; cursor: pointer;
+            font-weight: 700; font-family: 'JetBrains Mono', monospace; transition: 0.3s;
+        }
+        .btn-copy:hover { background: var(--primary); color: white; }
+        .script-link { display: block; margin-top: 15px; font-size: 0.8rem; color: var(--text-dim); text-decoration: none; }
+        .script-link:hover { color: var(--primary); }
 
-        .loading-container { grid-column: 1 / -1; text-align: center; padding: 50px; }
-        .spinner { width: 40px; height: 40px; border: 4px solid rgba(123, 92, 255, 0.1); border-left-color: var(--primary); border-radius: 50%; animation: spin 1s linear infinite; margin: auto; }
-        @keyframes spin { to { transform: rotate(360deg); } }
+        .section-title { font-size: 2.5rem; font-weight: 800; border-right: 4px solid var(--primary); padding-right: 15px; }
 
         @media (max-width: 768px) {
             .menu-toggle { display: block; }
@@ -102,8 +104,7 @@
         <a href="#" class="logo">7oo <span id="logo-name">مشعل</span></a>
         <nav id="nav-menu">
             <a href="#home" data-ar="الرئيسية" data-en="Home" onclick="toggleMenu()">الرئيسية</a>
-            <a href="#skills" data-ar="الخبرات" data-en="Expertise" onclick="toggleMenu()">الخبرات</a>
-            <a href="#projects" data-ar="المشاريع" data-en="Projects" onclick="toggleMenu()">المشاريع</a>
+            <a href="#scripts" data-ar="السكربتات" data-en="Scripts" onclick="toggleMenu()">السكربتات</a>
             <a href="#contact" data-ar="تواصل" data-en="Contact" onclick="toggleMenu()">تواصل</a>
         </nav>
         <div class="controls">
@@ -114,22 +115,33 @@
 
     <section id="home" class="hero" data-aos="zoom-out">
         <h1><span class="highlight">7oo</span><span class="name-tag" id="hero-name">مشعل</span></h1>
-        <p id="desc">مبرمج محترف متخصص في بناء الأنظمة والأتمتة باستخدام لغات متقدمة</p>
+        <p id="desc">مبرمج محترف ومطور Meshal Hub - أفضل السكربتات الموثوقة لـ Roblox</p>
     </section>
 
-    <section id="skills" data-aos="fade-up">
-        <h2 class="section-title" data-ar="الخبرات" data-en="Expertise">الخبرات</h2>
+    <section id="scripts" data-aos="fade-up">
+        <h2 class="section-title" data-ar="سكربتات Meshal Hub" data-en="Meshal Hub Scripts">سكربتات Meshal Hub</h2>
         <div class="grid">
-            <div class="card"><i class="fa-solid fa-code"></i><h3>Lua</h3><p>Game Scripts & Systems</p></div>
-            <div class="card"><i class="fa-brands fa-python"></i><h3>Python</h3><p>Automation & Bots</p></div>
-            <div class="card"><i class="fa-solid fa-server"></i><h3>Systems</h3><p>Backend Operations</p></div>
-        </div>
-    </section>
+            
+            <div class="card script-card" data-aos="fade-up">
+                <i class="fa-solid fa-gun"></i>
+                <h3>Shoot The Boss</h3>
+                <p data-ar="إضافة مال تلقائي، قتل الوحوش، والمزيد من المميزات الحصرية." data-en="Auto add money, kill boss, and more exclusive features.">إضافة مال تلقائي، قتل الوحوش، والمزيد من المميزات الحصرية.</p>
+                <button class="btn-copy" onclick="copyScript('loadstring(game:HttpGet(&quot;https://raw.githubusercontent.com/MeshalDev/ShootTheBoss/main/Script.lua&quot;))()', this)">
+                    <i class="fa-solid fa-copy"></i> Copy Script
+                </button>
+                <a href="https://scriptblox.com/script/Shoot-The-Boss-Meshal-hub-add-money-and-more-82114" target="_blank" class="script-link">View on ScriptBlox →</a>
+            </div>
 
-    <section id="projects" data-aos="fade-up">
-        <h2 class="section-title" data-ar="المشاريع" data-en="Projects">المشاريع</h2>
-        <div id="github-projects" class="grid">
-            <div class="loading-container"><div class="spinner"></div><p id="load-txt">Fetching Projects...</p></div>
+            <div class="card script-card" data-aos="fade-up" data-aos-delay="100">
+                <i class="fa-solid fa-bolt"></i>
+                <h3>Aura Tower!</h3>
+                <p data-ar="قتل الجميع تلقائياً، زيادة المال، وتطوير الهالة بسرعة." data-en="Auto kill all, add money, and aura evolution.">قتل الجميع تلقائياً، زيادة المال، وتطوير الهالة بسرعة.</p>
+                <button class="btn-copy" onclick="copyScript('loadstring(game:HttpGet(&quot;https://raw.githubusercontent.com/MeshalDev/AuraTower/main/Script.lua&quot;))()', this)">
+                    <i class="fa-solid fa-copy"></i> Copy Script
+                </button>
+                <a href="https://scriptblox.com/script/AY-MI-GATITO-AURA-TOWER!-Meshal-hub-kill-all-add-money-and-more-81881" target="_blank" class="script-link">View on ScriptBlox →</a>
+            </div>
+
         </div>
     </section>
 
@@ -149,7 +161,7 @@
         </div>
     </section>
 
-    <footer>© 2026 7oo • Crafted by Meshal</footer>
+    <footer>© 2026 7oo • Meshal Hub Development</footer>
 
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
@@ -157,17 +169,17 @@
     <script>
         AOS.init({ duration: 1000, once: true });
 
-        let lang = localStorage.getItem('lang') || "ar";
-        let isLight = localStorage.getItem('theme') === 'light';
-        if(isLight) document.body.classList.add('light');
-
         function toggleMenu() { 
             if (window.innerWidth <= 768) document.getElementById("nav-menu").classList.toggle("active");
         }
 
+        let lang = localStorage.getItem('lang') || "ar";
+        let isLight = localStorage.getItem('theme') === 'light';
+        if(isLight) document.body.classList.add('light');
+
         const texts = {
-            ar: { desc: "مبرمج محترف متخصص في بناء الأنظمة والأتمتة باستخدام لغات متقدمة", langBtn: "English", name: "مشعل", copied: "تم النسخ!" },
-            en: { desc: "Professional Programmer expert in building systems and automation", langBtn: "العربية", name: "Meshal", copied: "Copied!" }
+            ar: { desc: "مبرمج محترف ومطور Meshal Hub - أفضل السكربتات الموثوقة لـ Roblox", langBtn: "English", name: "مشعل", copied: "تم النسخ!", copyBtn: "نسخ السكربت" },
+            en: { desc: "Professional Programmer & Meshal Hub Developer - Best Roblox Scripts", langBtn: "العربية", name: "Meshal", copied: "Copied!", copyBtn: "Copy Script" }
         };
 
         function updateThemeBtn() {
@@ -194,34 +206,29 @@
             updateThemeBtn(); 
         }
 
+        // دالة نسخ السكربت
+        function copyScript(content, btn) {
+            navigator.clipboard.writeText(content);
+            const originalText = btn.innerHTML;
+            btn.innerHTML = `<i class="fa-solid fa-check"></i> ${texts[lang].copied}`;
+            btn.style.background = "#2ecc71";
+            btn.style.color = "white";
+            btn.style.borderStyle = "solid";
+            
+            setTimeout(() => {
+                btn.innerHTML = originalText;
+                btn.style.background = "";
+                btn.style.color = "";
+                btn.style.borderStyle = "";
+            }, 2000);
+        }
+
         function copyDiscord(el) {
             navigator.clipboard.writeText("95or");
             const p = el.querySelector("p");
             const oldText = p.innerText;
             p.innerText = texts[lang].copied;
             setTimeout(() => { p.innerText = oldText; }, 2000);
-        }
-
-        async function fetchGitHubProjects() {
-            // === ضع اسم حسابك الحقيقي بدلاً من 7oo هنا ===
-            const username = "MESHAL121212"; 
-            
-            const container = document.getElementById("github-projects");
-            try {
-                const res = await fetch(`https://api.github.com/users/${username}/repos?sort=updated&per_page=6`, {
-                    headers: { 'Accept': 'application/vnd.github.v3+json' }
-                });
-                const repos = await res.json();
-                if (!Array.isArray(repos)) throw "Error";
-                container.innerHTML = repos.slice(0, 6).map(repo => `
-                    <div class="card" data-aos="zoom-in">
-                        <i class="fa-brands fa-github"></i>
-                        <h3>${repo.name}</h3>
-                        <p>${repo.description || 'Project'}</p>
-                        <a href="${repo.html_url}" target="_blank" style="color:var(--primary); text-decoration:none; font-weight:bold; display:block; margin-top:15px;">View Code →</a>
-                    </div>
-                `).join('');
-            } catch (e) { container.innerHTML = "<p style='grid-column:1/-1'>Projects load error.</p>"; }
         }
 
         if (window.innerWidth > 480) {
@@ -237,7 +244,7 @@
         }
 
         applyLang();
-        fetchGitHubProjects();
     </script>
 </body>
 </html>
+
