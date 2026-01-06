@@ -74,7 +74,6 @@
         .card:hover { transform: translateY(-12px); border-color: var(--primary); }
         .card i { font-size: 45px; color: var(--primary); margin-bottom: 20px; display: block; }
         
-        /* Script Card Elements */
         .script-card h3 { margin-bottom: 15px; font-size: 1.4rem; }
         .script-card p { font-size: 0.9rem; margin-bottom: 20px; min-height: 45px; }
         .btn-copy {
@@ -148,10 +147,10 @@
     <section id="contact" data-aos="fade-up">
         <h2 class="section-title" data-ar="تواصل" data-en="Contact">تواصل</h2>
         <div class="grid">
-            <a href="mailto:support@7oo.xyz" class="card" style="text-decoration:none; color:inherit;">
+            <a href="mailto:support@7ooa.xyz" class="card" style="text-decoration:none; color:inherit;">
                 <i class="fa-solid fa-envelope"></i>
                 <h3>Email</h3>
-                <p>support@7oo.xyz</p>
+                <p>support@7ooa.xyz</p>
             </a>
             <div class="card" onclick="copyDiscord(this)" style="cursor:pointer;">
                 <i class="fa-brands fa-discord"></i>
@@ -206,20 +205,17 @@
             updateThemeBtn(); 
         }
 
-        // دالة نسخ السكربت
         function copyScript(content, btn) {
             navigator.clipboard.writeText(content);
             const originalText = btn.innerHTML;
             btn.innerHTML = `<i class="fa-solid fa-check"></i> ${texts[lang].copied}`;
             btn.style.background = "#2ecc71";
             btn.style.color = "white";
-            btn.style.borderStyle = "solid";
             
             setTimeout(() => {
                 btn.innerHTML = originalText;
                 btn.style.background = "";
                 btn.style.color = "";
-                btn.style.borderStyle = "";
             }, 2000);
         }
 
@@ -242,7 +238,6 @@
                 }
             });
         }
-
         applyLang();
     </script>
 </body>
