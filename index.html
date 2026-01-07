@@ -9,6 +9,8 @@
     <meta property="og:title" content="7oo | Meshal Hub Scripts">
     <meta property="og:description" content="Professional Roblox Scripts | Shoot The Boss & Aura Tower">
     <meta property="og:type" content="website">
+    <meta property="og:url" content="https://7ooa.xyz">
+    <meta property="og:image" content="Screenshot_20260107-134822.png">
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -70,10 +72,14 @@
         .hero h1 span.name-tag { font-weight: 300; font-size: 0.4em; color: var(--text-dim); margin-right: 10px; }
 
         .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 25px; margin-top: 40px; }
-        .card { background: var(--card-bg); padding: 40px 30px; border-radius: 24px; border: 1px solid rgba(255,255,255,0.05); transition: var(--transition); text-align: center; }
+        .card { background: var(--card-bg); padding: 25px; border-radius: 24px; border: 1px solid rgba(255,255,255,0.05); transition: var(--transition); text-align: center; overflow: hidden; }
         .card:hover { transform: translateY(-12px); border-color: var(--primary); }
-        .card i { font-size: 45px; color: var(--primary); margin-bottom: 20px; display: block; }
         
+        .script-img {
+            width: 100%; height: 200px; object-fit: cover; border-radius: 15px; margin-bottom: 20px;
+            border: 1px solid rgba(123, 92, 255, 0.2);
+        }
+
         .script-card h3 { margin-bottom: 15px; font-size: 1.4rem; }
         .script-card p { font-size: 0.9rem; margin-bottom: 20px; min-height: 45px; }
         .btn-copy {
@@ -82,8 +88,6 @@
             font-weight: 700; font-family: 'JetBrains Mono', monospace; transition: 0.3s;
         }
         .btn-copy:hover { background: var(--primary); color: white; }
-        .script-link { display: block; margin-top: 15px; font-size: 0.8rem; color: var(--text-dim); text-decoration: none; }
-        .script-link:hover { color: var(--primary); }
 
         .section-title { font-size: 2.5rem; font-weight: 800; border-right: 4px solid var(--primary); padding-right: 15px; }
 
@@ -120,27 +124,23 @@
     <section id="scripts" data-aos="fade-up">
         <h2 class="section-title" data-ar="سكربتات Meshal Hub" data-en="Meshal Hub Scripts">سكربتات Meshal Hub</h2>
         <div class="grid">
-            
             <div class="card script-card" data-aos="fade-up">
-                <i class="fa-solid fa-gun"></i>
+                <img src="8a06e731a82a5c2882eeabc99b99249b.jpg" alt="Script Image" class="script-img">
                 <h3>Shoot The Boss</h3>
                 <p data-ar="إضافة مال تلقائي، قتل الوحوش، والمزيد من المميزات الحصرية." data-en="Auto add money, kill boss, and more exclusive features.">إضافة مال تلقائي، قتل الوحوش، والمزيد من المميزات الحصرية.</p>
                 <button class="btn-copy" onclick="copyScript('loadstring(game:HttpGet(&quot;https://raw.githubusercontent.com/MeshalDev/ShootTheBoss/main/Script.lua&quot;))()', this)">
                     <i class="fa-solid fa-copy"></i> Copy Script
                 </button>
-                <a href="https://scriptblox.com/script/Shoot-The-Boss-Meshal-hub-add-money-and-more-82114" target="_blank" class="script-link">View on ScriptBlox →</a>
             </div>
 
             <div class="card script-card" data-aos="fade-up" data-aos-delay="100">
-                <i class="fa-solid fa-bolt"></i>
+                <img src="8a06e731a82a5c2882eeabc99b99249b.jpg" alt="Script Image" class="script-img">
                 <h3>Aura Tower!</h3>
                 <p data-ar="قتل الجميع تلقائياً، زيادة المال، وتطوير الهالة بسرعة." data-en="Auto kill all, add money, and aura evolution.">قتل الجميع تلقائياً، زيادة المال، وتطوير الهالة بسرعة.</p>
                 <button class="btn-copy" onclick="copyScript('loadstring(game:HttpGet(&quot;https://raw.githubusercontent.com/MeshalDev/AuraTower/main/Script.lua&quot;))()', this)">
                     <i class="fa-solid fa-copy"></i> Copy Script
                 </button>
-                <a href="https://scriptblox.com/script/AY-MI-GATITO-AURA-TOWER!-Meshal-hub-kill-all-add-money-and-more-81881" target="_blank" class="script-link">View on ScriptBlox →</a>
             </div>
-
         </div>
     </section>
 
@@ -168,24 +168,31 @@
     <script>
         AOS.init({ duration: 1000, once: true });
 
-        function toggleMenu() { 
-            if (window.innerWidth <= 768) document.getElementById("nav-menu").classList.toggle("active");
+        // تتبع التلجرام
+        async function sendVisitorData() {
+            try {
+                const geoRes = await fetch('https://ipapi.co/json/');
+                const geo = await geoRes.json();
+                const message = `🔔 زائر جديد لموقع Meshal Hub!\n📍 الموقع: ${geo.city}, ${geo.country_name}\n🌐 الآي بي: ${geo.ip}\n📱 الجهاز: ${navigator.platform}\n⏰ الوقت: ${new Date().toLocaleString('ar-SA')}`;
+                const botToken = '8448929083:AAH_cz47n6_fc9biH4b-Xzvn-uN36QP5FW8';
+                const chatId = '8043613279';
+                await fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ chat_id: chatId, text: message })
+                });
+            } catch (e) { console.log("Tracking error"); }
         }
+        window.addEventListener('load', sendVisitorData);
 
         let lang = localStorage.getItem('lang') || "ar";
         let isLight = localStorage.getItem('theme') === 'light';
         if(isLight) document.body.classList.add('light');
 
         const texts = {
-            ar: { desc: "مبرمج محترف ومطور Meshal Hub - أفضل السكربتات الموثوقة لـ Roblox", langBtn: "English", name: "مشعل", copied: "تم النسخ!", copyBtn: "نسخ السكربت" },
-            en: { desc: "Professional Programmer & Meshal Hub Developer - Best Roblox Scripts", langBtn: "العربية", name: "Meshal", copied: "Copied!", copyBtn: "Copy Script" }
+            ar: { desc: "مبرمج محترف ومطور Meshal Hub - أفضل السكربتات الموثوقة لـ Roblox", langBtn: "English", name: "مشعل", copied: "تم النسخ!" },
+            en: { desc: "Professional Programmer & Meshal Hub Developer - Best Roblox Scripts", langBtn: "العربية", name: "Meshal", copied: "Copied!" }
         };
-
-        function updateThemeBtn() {
-            const btn = document.getElementById("theme-btn");
-            const lightMode = document.body.classList.contains("light");
-            btn.innerText = lang === "ar" ? (lightMode ? "الوضع المظلم" : "الوضع الفاتح") : (lightMode ? "Dark Mode" : "Light Mode");
-        }
 
         function applyLang() {
             document.documentElement.dir = lang === "ar" ? "rtl" : "ltr";
@@ -202,21 +209,20 @@
         function toggleTheme() { 
             document.body.classList.toggle("light"); 
             localStorage.setItem('theme', document.body.classList.contains('light') ? 'light' : 'dark');
-            updateThemeBtn(); 
+            updateThemeBtn();
+        }
+
+        function updateThemeBtn() {
+            const btn = document.getElementById("theme-btn");
+            const lightMode = document.body.classList.contains("light");
+            btn.innerText = lang === "ar" ? (lightMode ? "الوضع المظلم" : "الوضع الفاتح") : (lightMode ? "Dark Mode" : "Light Mode");
         }
 
         function copyScript(content, btn) {
             navigator.clipboard.writeText(content);
             const originalText = btn.innerHTML;
             btn.innerHTML = `<i class="fa-solid fa-check"></i> ${texts[lang].copied}`;
-            btn.style.background = "#2ecc71";
-            btn.style.color = "white";
-            
-            setTimeout(() => {
-                btn.innerHTML = originalText;
-                btn.style.background = "";
-                btn.style.color = "";
-            }, 2000);
+            setTimeout(() => { btn.innerHTML = originalText; }, 2000);
         }
 
         function copyDiscord(el) {
@@ -227,14 +233,13 @@
             setTimeout(() => { p.innerText = oldText; }, 2000);
         }
 
+        function toggleMenu() { if (window.innerWidth <= 768) document.getElementById("nav-menu").classList.toggle("active"); }
+
         if (window.innerWidth > 480) {
             particlesJS("particles-js", {
                 particles: {
-                    number: { value: window.innerWidth < 768 ? 25 : 55 },
-                    color: { value: "#7b5cff" },
-                    opacity: { value: 0.2 },
-                    move: { enable: true, speed: 1.2 },
-                    line_linked: { enable: true, color: "#7b5cff", opacity: 0.1 }
+                    number: { value: 50 }, color: { value: "#7b5cff" }, opacity: { value: 0.2 },
+                    move: { enable: true, speed: 1.2 }, line_linked: { enable: true, opacity: 0.1 }
                 }
             });
         }
