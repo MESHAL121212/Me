@@ -1,208 +1,244 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>7ooa Hub | Meshal</title>
-    <meta name="description" content="7ooa Hub - Best Roblox Scripts & Community">
-    <meta property="og:title" content="7ooa Hub | Meshal">
-    <meta property="og:description" content="Explore top-tier Roblox scripts and tools.">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    
+    <title>7oo | Meshal Hub</title>
+    <meta name="description" content="مشعل (7oo) - مطور سكربتات Meshal Hub لـ Roblox وأنظمة الأتمتة.">
+    <meta property="og:title" content="7oo | Meshal Hub Scripts">
+    <meta property="og:description" content="Professional Roblox Scripts | Shoot The Boss & Aura Tower">
+    <meta property="og:type" content="website">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💻</text></svg>">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;700;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
     <style>
         :root {
-            --main-color: #00ffff; --secondary-color: #ffcc00; --bg-color: #0a0a0b;
-            --card-bg: #16161a; --text-color: #f0f0f0; --sub-text: #888888;
-            --transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+            --primary: #7b5cff;
+            --bg: #0b0b0f;
+            --card-bg: #14141d;
+            --text: #ffffff;
+            --text-dim: rgba(255, 255, 255, 0.6);
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
-        body.light-mode {
-            --bg-color: #f5f6fa; --card-bg: #ffffff; --text-color: #202124;
-            --sub-text: #5f6368; --main-color: #007aff;
+
+        body.light {
+            --bg: #f5f5f7;
+            --card-bg: #ffffff;
+            --text: #111111;
+            --text-dim: rgba(0, 0, 0, 0.6);
         }
-        body { background-color: var(--bg-color); color: var(--text-color); font-family: 'Inter', system-ui, sans-serif; margin: 0; padding: 0; transition: var(--transition); overflow-x: hidden; }
-        h1, h3, .key-tag, .main-btn, .btn-tool { user-select: none; -webkit-user-select: none; }
-        header { padding: 40px 20px; text-align: center; }
-        h1 { font-size: clamp(2rem, 8vw, 3rem); color: var(--main-color); margin-bottom: 20px; text-shadow: 0 0 8px rgba(0, 255, 255, 0.2); }
+
+        html[dir="ltr"] body { direction: ltr; text-align: left; }
+        html[dir="ltr"] .section-title { border-right: none; border-left: 4px solid var(--primary); padding-right: 0; padding-left: 15px; }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; scroll-behavior: smooth; }
+        body { font-family: 'Cairo', sans-serif; background-color: var(--bg); color: var(--text); overflow-x: hidden; transition: background 0.3s; }
+        #particles-js { position: fixed; width: 100%; height: 100%; z-index: -1; top: 0; }
+
+        header {
+            position: fixed; top: 0; width: 100%; padding: 15px 5%;
+            display: flex; justify-content: space-between; align-items: center;
+            backdrop-filter: blur(20px); background: rgba(11, 11, 15, 0.7);
+            z-index: 2000; border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .logo { font-size: 26px; font-weight: 800; color: var(--primary); text-decoration: none; }
+        .logo span { font-weight: 300; font-size: 18px; color: var(--text-dim); margin-right: 8px; }
+
+        nav { display: flex; gap: 20px; }
+        nav a { text-decoration: none; color: var(--text); font-weight: 600; font-size: 15px; transition: var(--transition); }
+        nav a:hover { color: var(--primary); }
+
+        .controls { display: flex; gap: 10px; }
+        .btn-control {
+            background: var(--primary); border: none; color: white; padding: 8px 16px;
+            border-radius: 8px; cursor: pointer; font-family: 'Cairo', sans-serif; font-weight: 700; transition: 0.3s;
+        }
+
+        .menu-toggle { display: none; cursor: pointer; font-size: 24px; color: var(--text); }
+
+        section { padding: 120px 8% 60px; max-width: 1200px; margin: auto; }
+        .hero { text-align: center; min-height: 70vh; display: flex; flex-direction: column; justify-content: center; align-items: center; }
+        .hero h1 { font-size: clamp(3rem, 12vw, 5.5rem); font-weight: 800; }
+        .hero h1 span.highlight { color: var(--primary); }
+        .hero h1 span.name-tag { font-weight: 300; font-size: 0.4em; color: var(--text-dim); margin-right: 10px; }
+
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 25px; margin-top: 40px; }
+        .card { background: var(--card-bg); padding: 40px 30px; border-radius: 24px; border: 1px solid rgba(255,255,255,0.05); transition: var(--transition); text-align: center; }
+        .card:hover { transform: translateY(-12px); border-color: var(--primary); }
+        .card i { font-size: 45px; color: var(--primary); margin-bottom: 20px; display: block; }
         
-        .controls { display: flex; justify-content: center; gap: 10px; margin-bottom: 30px; }
-        .btn-tool { background: rgba(255,255,255,0.05); border: 1px solid var(--main-color); color: var(--main-color); padding: 10px 18px; border-radius: 8px; cursor: pointer; font-weight: bold; transition: var(--transition); touch-action: manipulation; }
-        .btn-tool:disabled { opacity: 0.3; cursor: default; border-style: dotted; } /* Note 3: Language button UX */
-        .btn-tool:not(:disabled):hover { background: var(--main-color); color: #000; }
-        
-        .container { max-width: 1100px; margin: 0 auto; padding: 0 20px 50px; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
-        .card { background: var(--card-bg); border: 1px solid #2d2d35; border-radius: 16px; padding: 25px; position: relative; transition: var(--transition); display: flex; flex-direction: column; outline: none; }
-        .card:focus-within { border-color: var(--main-color); ring: 2px solid var(--main-color); } /* Note 5: Keyboard Focus */
-        .card.last-clicked { border: 2px solid var(--main-color); box-shadow: 0 0 15px rgba(0,255,255,0.1); }
-        .key-tag { background: var(--secondary-color); color: #000; font-size: 10px; padding: 4px 10px; border-radius: 6px; position: absolute; top: 15px; left: 15px; cursor: pointer; font-weight: 800; }
-        
-        #toast { visibility: hidden; min-width: 250px; background-color: #333; color: #fff; text-align: center; border-radius: 12px; padding: 16px; position: fixed; z-index: 100; bottom: 30px; left: 50%; transform: translateX(-50%); box-shadow: 0 10px 30px rgba(0,0,0,0.3); }
-        #toast.show { visibility: visible; animation: fadein 0.4s, fadeout 0.4s 2.6s; }
-        @keyframes fadein { from {bottom: 0; opacity: 0;} to {bottom: 30px; opacity: 1;} }
-        @keyframes fadeout { from {bottom: 30px; opacity: 1;} to {bottom: 0; opacity: 0;} }
-        
-        .card h3 { margin: 15px 0 5px; color: var(--main-color); }
-        .card p { color: var(--sub-text); font-size: 0.95rem; margin-bottom: 20px; min-height: 40px; line-height: 1.5; }
-        .main-btn { background: var(--main-color); color: #fff; border: none; padding: 12px; border-radius: 8px; font-weight: bold; cursor: pointer; transition: 0.2s; touch-action: manipulation; }
-        .main-btn:disabled { opacity: 0.5; cursor: not-allowed; }
-        body:not(.light-mode) .main-btn { color: #000; }
-        body.en { direction: ltr; text-align: left; }
-        body.en .key-tag { left: auto; right: 15px; }
+        .script-card h3 { margin-bottom: 15px; font-size: 1.4rem; }
+        .script-card p { font-size: 0.9rem; margin-bottom: 20px; min-height: 45px; }
+        .btn-copy {
+            width: 100%; background: rgba(123, 92, 255, 0.1); border: 1px dashed var(--primary);
+            color: var(--primary); padding: 12px; border-radius: 12px; cursor: pointer;
+            font-weight: 700; font-family: 'JetBrains Mono', monospace; transition: 0.3s;
+        }
+        .btn-copy:hover { background: var(--primary); color: white; }
+        .script-link { display: block; margin-top: 15px; font-size: 0.8rem; color: var(--text-dim); text-decoration: none; }
+        .script-link:hover { color: var(--primary); }
+
+        .section-title { font-size: 2.5rem; font-weight: 800; border-right: 4px solid var(--primary); padding-right: 15px; }
+
+        @media (max-width: 768px) {
+            .menu-toggle { display: block; }
+            nav { position: fixed; top: 0; left: -100%; width: 80%; height: 100vh; background: var(--bg); flex-direction: column; padding: 100px 40px; transition: 0.5s; z-index: 2100; }
+            nav.active { left: 0; }
+        }
+
+        footer { text-align: center; padding: 60px; color: var(--text-dim); }
     </style>
 </head>
-<body id="page-body">
-
-    <div id="toast" role="alert" aria-live="polite"></div>
-
+<body>
+    <div id="particles-js"></div>
     <header>
-        <h1 id="txt-title">7ooa Hub</h1>
+        <div class="menu-toggle" onclick="toggleMenu()"><i class="fas fa-bars"></i></div>
+        <a href="#" class="logo">7oo <span id="logo-name">مشعل</span></a>
+        <nav id="nav-menu">
+            <a href="#home" data-ar="الرئيسية" data-en="Home" onclick="toggleMenu()">الرئيسية</a>
+            <a href="#scripts" data-ar="السكربتات" data-en="Scripts" onclick="toggleMenu()">السكربتات</a>
+            <a href="#contact" data-ar="تواصل" data-en="Contact" onclick="toggleMenu()">تواصل</a>
+        </nav>
         <div class="controls">
-            <button id="lang-ar" class="btn-tool" onclick="App.setLang('ar')" aria-label="اللغة العربية">العربية</button>
-            <button id="lang-en" class="btn-tool" onclick="App.setLang('en')" aria-label="English Language">English</button>
-            <button class="btn-tool" onclick="App.toggleTheme()" aria-label="Toggle Theme">🌓</button>
+            <button class="btn-control" onclick="toggleLang()" id="lang-btn">English</button>
+            <button class="btn-control" onclick="toggleTheme()" id="theme-btn">الوضع الفاتح</button>
         </div>
     </header>
 
-    <main class="container" id="script-container"></main>
+    <section id="home" class="hero" data-aos="zoom-out">
+        <h1><span class="highlight">7oo</span><span class="name-tag" id="hero-name">مشعل</span></h1>
+        <p id="desc">مبرمج محترف ومطور Meshal Hub - أفضل السكربتات الموثوقة لـ Roblox</p>
+    </section>
 
+    <section id="scripts" data-aos="fade-up">
+        <h2 class="section-title" data-ar="سكربتات Meshal Hub" data-en="Meshal Hub Scripts">سكربتات Meshal Hub</h2>
+        <div class="grid">
+            
+            <div class="card script-card" data-aos="fade-up">
+                <i class="fa-solid fa-gun"></i>
+                <h3>Shoot The Boss</h3>
+                <p data-ar="إضافة مال تلقائي، قتل الوحوش، والمزيد من المميزات الحصرية." data-en="Auto add money, kill boss, and more exclusive features.">إضافة مال تلقائي، قتل الوحوش، والمزيد من المميزات الحصرية.</p>
+                <button class="btn-copy" onclick="copyScript('loadstring(game:HttpGet(&quot;https://raw.githubusercontent.com/MeshalDev/ShootTheBoss/main/Script.lua&quot;))()', this)">
+                    <i class="fa-solid fa-copy"></i> Copy Script
+                </button>
+                <a href="https://scriptblox.com/script/Shoot-The-Boss-Meshal-hub-add-money-and-more-82114" target="_blank" class="script-link">View on ScriptBlox →</a>
+            </div>
+
+            <div class="card script-card" data-aos="fade-up" data-aos-delay="100">
+                <i class="fa-solid fa-bolt"></i>
+                <h3>Aura Tower!</h3>
+                <p data-ar="قتل الجميع تلقائياً، زيادة المال، وتطوير الهالة بسرعة." data-en="Auto kill all, add money, and aura evolution.">قتل الجميع تلقائياً، زيادة المال، وتطوير الهالة بسرعة.</p>
+                <button class="btn-copy" onclick="copyScript('loadstring(game:HttpGet(&quot;https://raw.githubusercontent.com/MeshalDev/AuraTower/main/Script.lua&quot;))()', this)">
+                    <i class="fa-solid fa-copy"></i> Copy Script
+                </button>
+                <a href="https://scriptblox.com/script/AY-MI-GATITO-AURA-TOWER!-Meshal-hub-kill-all-add-money-and-more-81881" target="_blank" class="script-link">View on ScriptBlox →</a>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="contact" data-aos="fade-up">
+        <h2 class="section-title" data-ar="تواصل" data-en="Contact">تواصل</h2>
+        <div class="grid">
+            <a href="mailto:support@7ooa.xyz" class="card" style="text-decoration:none; color:inherit;">
+                <i class="fa-solid fa-envelope"></i>
+                <h3>Email</h3>
+                <p>support@7ooa.xyz</p>
+            </a>
+            <div class="card" onclick="copyDiscord(this)" style="cursor:pointer;">
+                <i class="fa-brands fa-discord"></i>
+                <h3>Discord</h3>
+                <p id="discord-id">95or</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>© 2026 7oo • Meshal Hub Development</footer>
+
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    
     <script>
-        const App = {
-            state: {
-                version: "9.0.2", // Note 6: Branding
-                lang: localStorage.getItem('7ooa_lang') || 'ar',
-                theme: localStorage.getItem('7ooa_theme') === 'true',
-                lastClicked: localStorage.getItem('last_script') || null,
-                toastTimer: null,
-                lastToastMsg: "" // Note 2: Prevent duplicate toast
-            },
+        AOS.init({ duration: 1000, once: true });
 
-            // Note 4: Whitelist for security
-            whitelist: ['scriptblox.com', 't.me', 'github.com'],
+        function toggleMenu() { 
+            if (window.innerWidth <= 768) document.getElementById("nav-menu").classList.toggle("active");
+        }
 
-            scripts: [
-                { id: 's1', name: 'Meshal Hub', url: 'https://scriptblox.com/script/Prove-You-Are-Not-a-Dum-Dum-Meshal-hub-op-82125', hasKey: true },
-                { id: 's2', name: 'Backdoor Hunter', url: 'https://t.me/YOUR_TELEGRAM', hasKey: false }
-            ],
+        let lang = localStorage.getItem('lang') || "ar";
+        let isLight = localStorage.getItem('theme') === 'light';
+        if(isLight) document.body.classList.add('light');
 
-            translations: {
-                ar: { title: "7ooa Hub | مشعل", key: "بمفتاح", tip: "يتطلب مفتاح من الموقع الرسمي 🔑", s1_desc: "أوتو فارم سريع ومميزات خرافية لماب Dum Dum.", s2_desc: "كشف الثغرات والريموتات المشبوهة تلقائياً.", loading: "جاري الفتح...", btn: "الحصول على السكربت" },
-                en: { title: "7ooa Hub | Meshal", key: "With Key", tip: "Key required from official site 🔑", s1_desc: "Fast Auto-farm & OP features for Dum Dum.", s2_desc: "Automatically scan for backdoors & remotes.", loading: "Opening...", btn: "Get Script" }
-            },
-
-            init() {
-                // Note 6: Extended Branding
-                console.log(`%c🚀 7ooa Hub v${this.state.version} | Build: 2026-01-07 | Meshal`, "color: #00ffff; font-weight: bold; background: #222; padding: 5px 10px; border-radius: 5px;");
-                this.renderScripts(); // Call once at start (Note 1)
-                this.updateUI(true);
-            },
-
-            renderScripts() {
-                const container = document.getElementById('script-container');
-                container.innerHTML = this.scripts.map(s => `
-                    <div class="card" data-id="${s.id}" id="card-${s.id}" tabindex="0">
-                        ${s.hasKey ? `<div class="key-tag" id="tag-${s.id}">${this.translations[this.state.lang].key}</div>` : ''}
-                        <h3>${s.name}</h3>
-                        <p id="desc-${s.id}">${this.translations[this.state.lang][s.id + '_desc']}</p>
-                        <button class="main-btn" id="btn-${s.id}" onclick="App.handleScript('${s.url}', '${s.id}')">${this.translations[this.state.lang].btn}</button>
-                    </div>
-                `).join('');
-
-                // Note 5: Keyboard listeners
-                this.scripts.forEach(s => {
-                    if (s.hasKey) {
-                        document.getElementById(`tag-${s.id}`).onclick = () => this.showToast(this.translations[this.state.lang].tip);
-                    }
-                });
-            },
-
-            updateUI(isInit = false) {
-                const d = this.translations[this.state.lang];
-                document.title = d.title;
-                document.getElementById('txt-title').innerText = d.title;
-                document.body.classList.toggle('en', this.state.lang === 'en');
-                document.body.classList.toggle('light-mode', this.state.theme);
-                document.documentElement.dir = this.state.lang === 'en' ? "ltr" : "rtl";
-
-                // Note 1: Efficient Update instead of full re-render
-                if (!isInit) {
-                    this.scripts.forEach(s => {
-                        const desc = document.getElementById(`desc-${s.id}`);
-                        const btn = document.getElementById(`btn-${s.id}`);
-                        const tag = document.getElementById(`tag-${s.id}`);
-                        if (desc) desc.innerText = d[s.id + '_desc'];
-                        if (btn && !btn.disabled) btn.innerText = d.btn;
-                        if (tag) tag.innerText = d.key;
-                    });
-                }
-
-                // Note 3: Language button UX
-                document.getElementById('lang-ar').disabled = (this.state.lang === 'ar');
-                document.getElementById('lang-en').disabled = (this.state.lang === 'en');
-                
-                this.highlightLast();
-            },
-
-            setLang(l) {
-                if (this.state.lang === l) return;
-                this.state.lang = l;
-                localStorage.setItem('7ooa_lang', l);
-                this.updateUI();
-            },
-
-            toggleTheme() {
-                this.state.theme = !this.state.theme;
-                localStorage.setItem('7ooa_theme', this.state.theme);
-                this.updateUI();
-            },
-
-            showToast(msg) {
-                // Note 2: Prevent duplicate toast spam
-                if (!msg || (msg === this.state.lastToastMsg && document.getElementById('toast').classList.contains('show'))) return;
-                
-                this.state.lastToastMsg = msg;
-                const t = document.getElementById('toast');
-                clearTimeout(this.state.toastTimer);
-                t.innerText = msg;
-                t.classList.remove('show');
-                void t.offsetWidth;
-                t.classList.add('show');
-                this.state.toastTimer = setTimeout(() => {
-                    t.classList.remove('show');
-                    this.state.lastToastMsg = "";
-                }, 3000);
-            },
-
-            handleScript(url, id) {
-                // Note 4: Security Whitelist
-                const isSafe = this.whitelist.some(domain => url.includes(domain));
-                if (!url.startsWith('https://') || !isSafe) {
-                    this.showToast("رابط غير آمن أو غير مصرح به!");
-                    return;
-                }
-
-                const btn = document.getElementById('btn-' + id);
-                btn.disabled = true;
-                btn.innerText = this.translations[this.state.lang].loading;
-
-                setTimeout(() => {
-                    window.open(url, '_blank', 'noopener,noreferrer');
-                    this.state.lastClicked = id;
-                    localStorage.setItem('last_script', id);
-                    this.highlightLast();
-                    
-                    setTimeout(() => {
-                        btn.disabled = false;
-                        btn.innerText = this.translations[this.state.lang].btn;
-                    }, 2000);
-                }, 250);
-            },
-
-            highlightLast() {
-                document.querySelectorAll('.card').forEach(c => {
-                    c.classList.toggle('last-clicked', c.getAttribute('data-id') === this.state.lastClicked);
-                });
-            }
+        const texts = {
+            ar: { desc: "مبرمج محترف ومطور Meshal Hub - أفضل السكربتات الموثوقة لـ Roblox", langBtn: "English", name: "مشعل", copied: "تم النسخ!", copyBtn: "نسخ السكربت" },
+            en: { desc: "Professional Programmer & Meshal Hub Developer - Best Roblox Scripts", langBtn: "العربية", name: "Meshal", copied: "Copied!", copyBtn: "Copy Script" }
         };
 
-        window.onload = () => App.init();
+        function updateThemeBtn() {
+            const btn = document.getElementById("theme-btn");
+            const lightMode = document.body.classList.contains("light");
+            btn.innerText = lang === "ar" ? (lightMode ? "الوضع المظلم" : "الوضع الفاتح") : (lightMode ? "Dark Mode" : "Light Mode");
+        }
+
+        function applyLang() {
+            document.documentElement.dir = lang === "ar" ? "rtl" : "ltr";
+            document.getElementById("desc").innerText = texts[lang].desc;
+            document.getElementById("lang-btn").innerText = texts[lang].langBtn;
+            document.getElementById("logo-name").innerText = texts[lang].name;
+            document.getElementById("hero-name").innerText = texts[lang].name;
+            updateThemeBtn();
+            document.querySelectorAll("[data-ar]").forEach(el => el.textContent = el.getAttribute(`data-${lang}`));
+            localStorage.setItem('lang', lang);
+        }
+
+        function toggleLang() { lang = lang === "ar" ? "en" : "ar"; applyLang(); }
+        function toggleTheme() { 
+            document.body.classList.toggle("light"); 
+            localStorage.setItem('theme', document.body.classList.contains('light') ? 'light' : 'dark');
+            updateThemeBtn(); 
+        }
+
+        function copyScript(content, btn) {
+            navigator.clipboard.writeText(content);
+            const originalText = btn.innerHTML;
+            btn.innerHTML = `<i class="fa-solid fa-check"></i> ${texts[lang].copied}`;
+            btn.style.background = "#2ecc71";
+            btn.style.color = "white";
+            
+            setTimeout(() => {
+                btn.innerHTML = originalText;
+                btn.style.background = "";
+                btn.style.color = "";
+            }, 2000);
+        }
+
+        function copyDiscord(el) {
+            navigator.clipboard.writeText("95or");
+            const p = el.querySelector("p");
+            const oldText = p.innerText;
+            p.innerText = texts[lang].copied;
+            setTimeout(() => { p.innerText = oldText; }, 2000);
+        }
+
+        if (window.innerWidth > 480) {
+            particlesJS("particles-js", {
+                particles: {
+                    number: { value: window.innerWidth < 768 ? 25 : 55 },
+                    color: { value: "#7b5cff" },
+                    opacity: { value: 0.2 },
+                    move: { enable: true, speed: 1.2 },
+                    line_linked: { enable: true, color: "#7b5cff", opacity: 0.1 }
+                }
+            });
+        }
+        applyLang();
     </script>
 </body>
 </html>
