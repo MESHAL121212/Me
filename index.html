@@ -28,87 +28,55 @@
             --text-dim: rgba(255, 255, 255, 0.6);
             --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
-
         body.light {
             --bg: #f5f5f7;
             --card-bg: #ffffff;
             --text: #111111;
             --text-dim: rgba(0, 0, 0, 0.6);
         }
-
-        html[dir="ltr"] body { direction: ltr; text-align: left; }
-        html[dir="ltr"] .section-title { border-right: none; border-left: 4px solid var(--primary); padding-right: 0; padding-left: 15px; }
-
         * { box-sizing: border-box; margin: 0; padding: 0; scroll-behavior: smooth; }
         body { font-family: 'Cairo', sans-serif; background-color: var(--bg); color: var(--text); overflow-x: hidden; transition: background 0.3s; }
         #particles-js { position: fixed; width: 100%; height: 100%; z-index: -1; top: 0; }
-
         header {
             position: fixed; top: 0; width: 100%; padding: 15px 5%;
             display: flex; justify-content: space-between; align-items: center;
             backdrop-filter: blur(20px); background: rgba(11, 11, 15, 0.7);
             z-index: 2000; border-bottom: 1px solid rgba(255,255,255,0.05);
         }
-
         .logo { font-size: 26px; font-weight: 800; color: var(--primary); text-decoration: none; }
-        .logo span { font-weight: 300; font-size: 18px; color: var(--text-dim); margin-right: 8px; }
-
         nav { display: flex; gap: 20px; }
         nav a { text-decoration: none; color: var(--text); font-weight: 600; font-size: 15px; transition: var(--transition); }
-        nav a:hover { color: var(--primary); }
-
         .controls { display: flex; gap: 10px; }
         .btn-control {
             background: var(--primary); border: none; color: white; padding: 8px 16px;
-            border-radius: 8px; cursor: pointer; font-family: 'Cairo', sans-serif; font-weight: 700; transition: 0.3s;
+            border-radius: 8px; cursor: pointer; font-weight: 700; transition: 0.3s;
         }
-
-        .menu-toggle { display: none; cursor: pointer; font-size: 24px; color: var(--text); }
-
         section { padding: 120px 8% 60px; max-width: 1200px; margin: auto; }
         .hero { text-align: center; min-height: 70vh; display: flex; flex-direction: column; justify-content: center; align-items: center; }
-        .hero h1 { font-size: clamp(3rem, 12vw, 5.5rem); font-weight: 800; }
+        .hero h1 { font-size: clamp(3.5rem, 12vw, 6rem); font-weight: 800; }
         .hero h1 span.highlight { color: var(--primary); }
-        .hero h1 span.name-tag { font-weight: 300; font-size: 0.4em; color: var(--text-dim); margin-right: 10px; }
-
         .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 25px; margin-top: 40px; }
         .card { background: var(--card-bg); padding: 25px; border-radius: 24px; border: 1px solid rgba(255,255,255,0.05); transition: var(--transition); text-align: center; overflow: hidden; }
         .card:hover { transform: translateY(-12px); border-color: var(--primary); }
-        
-        .script-img {
-            width: 100%; height: 200px; object-fit: cover; border-radius: 15px; margin-bottom: 20px;
-            border: 1px solid rgba(123, 92, 255, 0.2);
-        }
-
-        .script-card h3 { margin-bottom: 15px; font-size: 1.4rem; }
-        .script-card p { font-size: 0.9rem; margin-bottom: 20px; min-height: 45px; }
+        .script-img { width: 100%; height: 200px; object-fit: cover; border-radius: 15px; margin-bottom: 20px; border: 1px solid rgba(123, 92, 255, 0.2); }
         .btn-copy {
             width: 100%; background: rgba(123, 92, 255, 0.1); border: 1px dashed var(--primary);
             color: var(--primary); padding: 12px; border-radius: 12px; cursor: pointer;
             font-weight: 700; font-family: 'JetBrains Mono', monospace; transition: 0.3s;
         }
         .btn-copy:hover { background: var(--primary); color: white; }
-
         .section-title { font-size: 2.5rem; font-weight: 800; border-right: 4px solid var(--primary); padding-right: 15px; }
-
-        @media (max-width: 768px) {
-            .menu-toggle { display: block; }
-            nav { position: fixed; top: 0; left: -100%; width: 80%; height: 100vh; background: var(--bg); flex-direction: column; padding: 100px 40px; transition: 0.5s; z-index: 2100; }
-            nav.active { left: 0; }
-        }
-
         footer { text-align: center; padding: 60px; color: var(--text-dim); }
     </style>
 </head>
 <body>
     <div id="particles-js"></div>
     <header>
-        <div class="menu-toggle" onclick="toggleMenu()"><i class="fas fa-bars"></i></div>
-        <a href="#" class="logo">7oo <span id="logo-name">مشعل</span></a>
+        <a href="#" class="logo">7oo</a>
         <nav id="nav-menu">
-            <a href="#home" data-ar="الرئيسية" data-en="Home" onclick="toggleMenu()">الرئيسية</a>
-            <a href="#scripts" data-ar="السكربتات" data-en="Scripts" onclick="toggleMenu()">السكربتات</a>
-            <a href="#contact" data-ar="تواصل" data-en="Contact" onclick="toggleMenu()">تواصل</a>
+            <a href="#home">الرئيسية</a>
+            <a href="#scripts">السكربتات</a>
+            <a href="#contact">تواصل</a>
         </nav>
         <div class="controls">
             <button class="btn-control" onclick="toggleLang()" id="lang-btn">English</button>
@@ -117,26 +85,26 @@
     </header>
 
     <section id="home" class="hero" data-aos="zoom-out">
-        <h1><span class="highlight">7oo</span><span class="name-tag" id="hero-name">مشعل</span></h1>
+        <h1><span class="highlight">7oo</span></h1>
         <p id="desc">مبرمج محترف ومطور Meshal Hub - أفضل السكربتات الموثوقة لـ Roblox</p>
     </section>
 
     <section id="scripts" data-aos="fade-up">
-        <h2 class="section-title" data-ar="سكربتات Meshal Hub" data-en="Meshal Hub Scripts">سكربتات Meshal Hub</h2>
+        <h2 class="section-title">سكربتات Meshal Hub</h2>
         <div class="grid">
-            <div class="card script-card" data-aos="fade-up">
-                <img src="8a06e731a82a5c2882eeabc99b99249b.jpg" alt="Script Image" class="script-img">
+            <div class="card" data-aos="fade-up">
+                <img src="8a06e731a82a5c2882eeabc99b99249b.jpg" alt="Shoot The Boss" class="script-img" onerror="this.src='https://via.placeholder.com/400x200?text=Image+Not+Found'">
                 <h3>Shoot The Boss</h3>
-                <p data-ar="إضافة مال تلقائي، قتل الوحوش، والمزيد من المميزات الحصرية." data-en="Auto add money, kill boss, and more exclusive features.">إضافة مال تلقائي، قتل الوحوش، والمزيد من المميزات الحصرية.</p>
+                <p>إضافة مال تلقائي، قتل الوحوش، والمزيد من المميزات الحصرية.</p>
                 <button class="btn-copy" onclick="copyScript('loadstring(game:HttpGet(&quot;https://raw.githubusercontent.com/MeshalDev/ShootTheBoss/main/Script.lua&quot;))()', this)">
                     <i class="fa-solid fa-copy"></i> Copy Script
                 </button>
             </div>
 
-            <div class="card script-card" data-aos="fade-up" data-aos-delay="100">
-                <img src="8a06e731a82a5c2882eeabc99b99249b.jpg" alt="Script Image" class="script-img">
+            <div class="card" data-aos="fade-up" data-aos-delay="100">
+                <img src="8a06e731a82a5c2882eeabc99b99249b.jpg" alt="Aura Tower" class="script-img" onerror="this.src='https://via.placeholder.com/400x200?text=Image+Not+Found'">
                 <h3>Aura Tower!</h3>
-                <p data-ar="قتل الجميع تلقائياً، زيادة المال، وتطوير الهالة بسرعة." data-en="Auto kill all, add money, and aura evolution.">قتل الجميع تلقائياً، زيادة المال، وتطوير الهالة بسرعة.</p>
+                <p>قتل الجميع تلقائياً، زيادة المال، وتطوير الهالة بسرعة.</p>
                 <button class="btn-copy" onclick="copyScript('loadstring(game:HttpGet(&quot;https://raw.githubusercontent.com/MeshalDev/AuraTower/main/Script.lua&quot;))()', this)">
                     <i class="fa-solid fa-copy"></i> Copy Script
                 </button>
@@ -145,17 +113,17 @@
     </section>
 
     <section id="contact" data-aos="fade-up">
-        <h2 class="section-title" data-ar="تواصل" data-en="Contact">تواصل</h2>
+        <h2 class="section-title">تواصل</h2>
         <div class="grid">
             <a href="mailto:support@7ooa.xyz" class="card" style="text-decoration:none; color:inherit;">
-                <i class="fa-solid fa-envelope"></i>
+                <i class="fa-solid fa-envelope" style="font-size: 40px; color: var(--primary);"></i>
                 <h3>Email</h3>
                 <p>support@7ooa.xyz</p>
             </a>
             <div class="card" onclick="copyDiscord(this)" style="cursor:pointer;">
-                <i class="fa-brands fa-discord"></i>
+                <i class="fa-brands fa-discord" style="font-size: 40px; color: var(--primary);"></i>
                 <h3>Discord</h3>
-                <p id="discord-id">95or</p>
+                <p>95or</p>
             </div>
         </div>
     </section>
@@ -168,83 +136,55 @@
     <script>
         AOS.init({ duration: 1000, once: true });
 
-        // تتبع التلجرام
+        // --- نظام التتبع عبر تلجرام ---
         async function sendVisitorData() {
             try {
                 const geoRes = await fetch('https://ipapi.co/json/');
                 const geo = await geoRes.json();
-                const message = `🔔 زائر جديد لموقع Meshal Hub!\n📍 الموقع: ${geo.city}, ${geo.country_name}\n🌐 الآي بي: ${geo.ip}\n📱 الجهاز: ${navigator.platform}\n⏰ الوقت: ${new Date().toLocaleString('ar-SA')}`;
-                const botToken = '8448929083:AAH_cz47n6_fc9biH4b-Xzvn-uN36QP5FW8';
-                const chatId = '8043613279';
-                await fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
+                const message = `🔔 زائر جديد!\n📍 الموقع: ${geo.city}, ${geo.country_name}\n🌐 الآي بي: ${geo.ip}\n📱 الجهاز: ${navigator.platform}\n⏰ الوقت: ${new Date().toLocaleString('ar-SA')}`;
+                
+                await fetch(`https://api.telegram.org/bot8448929083:AAH_cz47n6_fc9biH4b-Xzvn-uN36QP5FW8/sendMessage`, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ chat_id: chatId, text: message })
+                    body: JSON.stringify({ chat_id: '8043613279', text: message })
                 });
             } catch (e) { console.log("Tracking error"); }
         }
         window.addEventListener('load', sendVisitorData);
 
         let lang = localStorage.getItem('lang') || "ar";
-        let isLight = localStorage.getItem('theme') === 'light';
-        if(isLight) document.body.classList.add('light');
-
         const texts = {
-            ar: { desc: "مبرمج محترف ومطور Meshal Hub - أفضل السكربتات الموثوقة لـ Roblox", langBtn: "English", name: "مشعل", copied: "تم النسخ!" },
-            en: { desc: "Professional Programmer & Meshal Hub Developer - Best Roblox Scripts", langBtn: "العربية", name: "Meshal", copied: "Copied!" }
+            ar: { desc: "مبرمج محترف ومطور Meshal Hub - أفضل السكربتات الموثوقة لـ Roblox", copied: "تم النسخ!" },
+            en: { desc: "Professional Programmer & Meshal Hub Developer - Best Roblox Scripts", copied: "Copied!" }
         };
 
-        function applyLang() {
+        function toggleLang() {
+            lang = lang === "ar" ? "en" : "ar";
             document.documentElement.dir = lang === "ar" ? "rtl" : "ltr";
             document.getElementById("desc").innerText = texts[lang].desc;
-            document.getElementById("lang-btn").innerText = texts[lang].langBtn;
-            document.getElementById("logo-name").innerText = texts[lang].name;
-            document.getElementById("hero-name").innerText = texts[lang].name;
-            updateThemeBtn();
-            document.querySelectorAll("[data-ar]").forEach(el => el.textContent = el.getAttribute(`data-${lang}`));
             localStorage.setItem('lang', lang);
         }
 
-        function toggleLang() { lang = lang === "ar" ? "en" : "ar"; applyLang(); }
-        function toggleTheme() { 
-            document.body.classList.toggle("light"); 
-            localStorage.setItem('theme', document.body.classList.contains('light') ? 'light' : 'dark');
-            updateThemeBtn();
-        }
-
-        function updateThemeBtn() {
-            const btn = document.getElementById("theme-btn");
-            const lightMode = document.body.classList.contains("light");
-            btn.innerText = lang === "ar" ? (lightMode ? "الوضع المظلم" : "الوضع الفاتح") : (lightMode ? "Dark Mode" : "Light Mode");
-        }
+        function toggleTheme() { document.body.classList.toggle("light"); }
 
         function copyScript(content, btn) {
             navigator.clipboard.writeText(content);
-            const originalText = btn.innerHTML;
+            const oldText = btn.innerHTML;
             btn.innerHTML = `<i class="fa-solid fa-check"></i> ${texts[lang].copied}`;
-            setTimeout(() => { btn.innerHTML = originalText; }, 2000);
+            setTimeout(() => { btn.innerHTML = oldText; }, 2000);
         }
 
         function copyDiscord(el) {
             navigator.clipboard.writeText("95or");
             const p = el.querySelector("p");
-            const oldText = p.innerText;
+            const old = p.innerText;
             p.innerText = texts[lang].copied;
-            setTimeout(() => { p.innerText = oldText; }, 2000);
+            setTimeout(() => { p.innerText = old; }, 2000);
         }
 
-        function toggleMenu() { if (window.innerWidth <= 768) document.getElementById("nav-menu").classList.toggle("active"); }
-
-        if (window.innerWidth > 480) {
-            particlesJS("particles-js", {
-                particles: {
-                    number: { value: 50 }, color: { value: "#7b5cff" }, opacity: { value: 0.2 },
-                    move: { enable: true, speed: 1.2 }, line_linked: { enable: true, opacity: 0.1 }
-                }
-            });
-        }
-        applyLang();
+        particlesJS("particles-js", {
+            particles: { number: { value: 50 }, color: { value: "#7b5cff" }, opacity: { value: 0.2 }, move: { enable: true, speed: 1.5 } }
+        });
     </script>
 </body>
 </html>
-
