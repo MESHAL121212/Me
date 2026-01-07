@@ -1,190 +1,175 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-    
-    <title>7oo | Meshal Hub</title>
-    <meta name="description" content="مشعل (7oo) - مطور سكربتات Meshal Hub لـ Roblox وأنظمة الأتمتة.">
-    <meta property="og:title" content="7oo | Meshal Hub Scripts">
-    <meta property="og:description" content="Professional Roblox Scripts | Shoot The Boss & Aura Tower">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://7ooa.xyz">
-    <meta property="og:image" content="Screenshot_20260107-134822.png">
-    
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💻</text></svg>">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;700;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<title>7oo | Meshal Hub</title>
+<meta name="description" content="مشعل (7oo) - مطور سكربتات Meshal Hub لـ Roblox وأنظمة الأتمتة.">
+<meta property="og:title" content="7oo | Meshal Hub Scripts">
+<meta property="og:description" content="Professional Roblox Scripts | Shoot The Boss & Aura Tower">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💻</text></svg>">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;700;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
-    <style>
-        :root {
-            --primary: #7b5cff;
-            --bg: #0b0b0f;
-            --card-bg: #14141d;
-            --text: #ffffff;
-            --text-dim: rgba(255, 255, 255, 0.6);
-            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        body.light {
-            --bg: #f5f5f7;
-            --card-bg: #ffffff;
-            --text: #111111;
-            --text-dim: rgba(0, 0, 0, 0.6);
-        }
-        * { box-sizing: border-box; margin: 0; padding: 0; scroll-behavior: smooth; }
-        body { font-family: 'Cairo', sans-serif; background-color: var(--bg); color: var(--text); overflow-x: hidden; transition: background 0.3s; }
-        #particles-js { position: fixed; width: 100%; height: 100%; z-index: -1; top: 0; }
-        header {
-            position: fixed; top: 0; width: 100%; padding: 15px 5%;
-            display: flex; justify-content: space-between; align-items: center;
-            backdrop-filter: blur(20px); background: rgba(11, 11, 15, 0.7);
-            z-index: 2000; border-bottom: 1px solid rgba(255,255,255,0.05);
-        }
-        .logo { font-size: 26px; font-weight: 800; color: var(--primary); text-decoration: none; }
-        nav { display: flex; gap: 20px; }
-        nav a { text-decoration: none; color: var(--text); font-weight: 600; font-size: 15px; transition: var(--transition); }
-        .controls { display: flex; gap: 10px; }
-        .btn-control {
-            background: var(--primary); border: none; color: white; padding: 8px 16px;
-            border-radius: 8px; cursor: pointer; font-weight: 700; transition: 0.3s;
-        }
-        section { padding: 120px 8% 60px; max-width: 1200px; margin: auto; }
-        .hero { text-align: center; min-height: 70vh; display: flex; flex-direction: column; justify-content: center; align-items: center; }
-        .hero h1 { font-size: clamp(3.5rem, 12vw, 6rem); font-weight: 800; }
-        .hero h1 span.highlight { color: var(--primary); }
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 25px; margin-top: 40px; }
-        .card { background: var(--card-bg); padding: 25px; border-radius: 24px; border: 1px solid rgba(255,255,255,0.05); transition: var(--transition); text-align: center; overflow: hidden; }
-        .card:hover { transform: translateY(-12px); border-color: var(--primary); }
-        .script-img { width: 100%; height: 200px; object-fit: cover; border-radius: 15px; margin-bottom: 20px; border: 1px solid rgba(123, 92, 255, 0.2); }
-        .btn-copy {
-            width: 100%; background: rgba(123, 92, 255, 0.1); border: 1px dashed var(--primary);
-            color: var(--primary); padding: 12px; border-radius: 12px; cursor: pointer;
-            font-weight: 700; font-family: 'JetBrains Mono', monospace; transition: 0.3s;
-        }
-        .btn-copy:hover { background: var(--primary); color: white; }
-        .section-title { font-size: 2.5rem; font-weight: 800; border-right: 4px solid var(--primary); padding-right: 15px; }
-        footer { text-align: center; padding: 60px; color: var(--text-dim); }
-    </style>
+<style>
+:root {
+    --primary: #7b5cff;
+    --bg: #0b0b0f;
+    --card-bg: #14141d;
+    --text: #ffffff;
+    --text-dim: rgba(255, 255, 255, 0.6);
+    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+body.light {
+    --bg: #f5f5f7;
+    --card-bg: #ffffff;
+    --text: #111111;
+    --text-dim: rgba(0, 0, 0, 0.6);
+}
+html[dir="ltr"] body { direction: ltr; text-align: left; }
+html[dir="ltr"] .section-title { border-right: none; border-left: 4px solid var(--primary); padding-right: 0; padding-left: 15px; }
+* { box-sizing: border-box; margin: 0; padding: 0; scroll-behavior: smooth; }
+body { font-family: 'Cairo', sans-serif; background-color: var(--bg); color: var(--text); overflow-x: hidden; transition: background 0.3s; }
+header {
+    position: fixed; top: 0; width: 100%; padding: 15px 5%;
+    display: flex; justify-content: space-between; align-items: center;
+    backdrop-filter: blur(20px); background: rgba(11, 11, 15, 0.7);
+    z-index: 2000; border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+.logo { font-size: 26px; font-weight: 800; color: var(--primary); text-decoration: none; }
+.logo span { font-weight: 300; font-size: 18px; color: var(--text-dim); margin-right: 8px; }
+nav { display: flex; gap: 20px; }
+nav a { text-decoration: none; color: var(--text); font-weight: 600; font-size: 15px; transition: var(--transition); }
+nav a:hover { color: var(--primary); }
+.controls { display: flex; gap: 10px; }
+.btn-control {
+    background: var(--primary); border: none; color: white; padding: 8px 16px;
+    border-radius: 8px; cursor: pointer; font-family: 'Cairo', sans-serif; font-weight: 700; transition: 0.3s;
+}
+section { padding: 120px 8% 60px; max-width: 1200px; margin: auto; }
+.hero { text-align: center; min-height: 70vh; display: flex; flex-direction: column; justify-content: center; align-items: center; }
+.hero h1 { font-size: clamp(3rem, 12vw, 5.5rem); font-weight: 800; }
+.hero h1 span.highlight { color: var(--primary); }
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 25px; margin-top: 40px; }
+.card { background: var(--card-bg); border-radius: 16px; padding: 25px; display: flex; flex-direction: column; gap: 15px; }
+.btn-copy { background: var(--primary); border: none; color: #fff; padding: 10px 14px; border-radius: 8px; cursor: pointer; font-weight: 700; transition: 0.3s; display: flex; align-items: center; gap: 8px; }
+.btn-copy:hover { opacity: 0.85; }
+.script-link { color: var(--primary); text-decoration: none; font-weight: 600; }
+</style>
 </head>
-<body>
-    <div id="particles-js"></div>
-    <header>
-        <a href="#" class="logo">7oo</a>
-        <nav id="nav-menu">
-            <a href="#home">الرئيسية</a>
-            <a href="#scripts">السكربتات</a>
-            <a href="#contact">تواصل</a>
-        </nav>
-        <div class="controls">
-            <button class="btn-control" onclick="toggleLang()" id="lang-btn">English</button>
-            <button class="btn-control" onclick="toggleTheme()" id="theme-btn">الوضع الفاتح</button>
+<body id="page-body">
+
+<section class="hero">
+    <h1>
+        <span class="name-tag" id="hero-name">مشعل</span>
+        <span class="highlight">Hub</span>
+    </h1>
+    <p id="desc">مبرمج محترف ومطور Meshal Hub - أفضل السكربتات الموثوقة لـ Roblox</p>
+</section>
+
+<section id="scripts" data-aos="fade-up">
+    <div class="grid">
+        <div class="card">
+            <i class="fa-solid fa-bolt"></i>
+            <h3>Aura Tower!</h3>
+            <p data-ar="قتل الجميع تلقائياً، زيادة المال، وتطوير الهالة بسرعة." data-en="Auto kill all, add money, and aura evolution.">
+                قتل الجميع تلقائياً، زيادة المال، وتطوير الهالة بسرعة.
+            </p>
+            <button class="btn-copy" onclick="copyScript('loadstring(game:HttpGet(&quot;https://raw.githubusercontent.com/MeshalDev/AuraTower/main/Script.lua&quot;))()', this)">
+                <i class="fa-solid fa-copy"></i> Copy Script
+            </button>
+            <a href="https://scriptblox.com/script/AY-MI-GATITO-AURA-TOWER!-Meshal-hub-kill-all-add-money-and-more-81881" target="_blank" class="script-link">View on ScriptBlox →</a>
         </div>
-    </header>
+    </div>
+</section>
 
-    <section id="home" class="hero" data-aos="zoom-out">
-        <h1><span class="highlight">7oo</span></h1>
-        <p id="desc">مبرمج محترف ومطور Meshal Hub - أفضل السكربتات الموثوقة لـ Roblox</p>
-    </section>
-
-    <section id="scripts" data-aos="fade-up">
-        <h2 class="section-title">سكربتات Meshal Hub</h2>
-        <div class="grid">
-            <div class="card" data-aos="fade-up">
-                <img src="8a06e731a82a5c2882eeabc99b99249b.jpg" alt="Shoot The Boss" class="script-img" onerror="this.src='https://via.placeholder.com/400x200?text=Image+Not+Found'">
-                <h3>Shoot The Boss</h3>
-                <p>إضافة مال تلقائي، قتل الوحوش، والمزيد من المميزات الحصرية.</p>
-                <button class="btn-copy" onclick="copyScript('loadstring(game:HttpGet(&quot;https://raw.githubusercontent.com/MeshalDev/ShootTheBoss/main/Script.lua&quot;))()', this)">
-                    <i class="fa-solid fa-copy"></i> Copy Script
-                </button>
-            </div>
-
-            <div class="card" data-aos="fade-up" data-aos-delay="100">
-                <img src="8a06e731a82a5c2882eeabc99b99249b.jpg" alt="Aura Tower" class="script-img" onerror="this.src='https://via.placeholder.com/400x200?text=Image+Not+Found'">
-                <h3>Aura Tower!</h3>
-                <p>قتل الجميع تلقائياً، زيادة المال، وتطوير الهالة بسرعة.</p>
-                <button class="btn-copy" onclick="copyScript('loadstring(game:HttpGet(&quot;https://raw.githubusercontent.com/MeshalDev/AuraTower/main/Script.lua&quot;))()', this)">
-                    <i class="fa-solid fa-copy"></i> Copy Script
-                </button>
-            </div>
+<section id="contact" data-aos="fade-up">
+    <h2 class="section-title" data-ar="تواصل" data-en="Contact">تواصل</h2>
+    <div class="grid">
+        <a href="mailto:support@7ooa.xyz" class="card" style="text-decoration:none; color:inherit;">
+            <i class="fa-solid fa-envelope"></i>
+            <h3>Email</h3>
+            <p>support@7ooa.xyz</p>
+        </a>
+        <div class="card" onclick="copyDiscord(this)" style="cursor:pointer;">
+            <i class="fa-brands fa-discord"></i>
+            <h3>Discord</h3>
+            <p id="discord-id">95or</p>
         </div>
-    </section>
+    </div>
+</section>
 
-    <section id="contact" data-aos="fade-up">
-        <h2 class="section-title">تواصل</h2>
-        <div class="grid">
-            <a href="mailto:support@7ooa.xyz" class="card" style="text-decoration:none; color:inherit;">
-                <i class="fa-solid fa-envelope" style="font-size: 40px; color: var(--primary);"></i>
-                <h3>Email</h3>
-                <p>support@7ooa.xyz</p>
-            </a>
-            <div class="card" onclick="copyDiscord(this)" style="cursor:pointer;">
-                <i class="fa-brands fa-discord" style="font-size: 40px; color: var(--primary);"></i>
-                <h3>Discord</h3>
-                <p>95or</p>
-            </div>
-        </div>
-    </section>
+<footer>© 2026 7oo • Meshal Hub Development</footer>
 
-    <footer>© 2026 7oo • Meshal Hub Development</footer>
+<script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
-    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    
-    <script>
-        AOS.init({ duration: 1000, once: true });
+<script>
+AOS.init({ duration: 1000, once: true });
 
-        // --- نظام التتبع عبر تلجرام ---
-        async function sendVisitorData() {
-            try {
-                const geoRes = await fetch('https://ipapi.co/json/');
-                const geo = await geoRes.json();
-                const message = `🔔 زائر جديد!\n📍 الموقع: ${geo.city}, ${geo.country_name}\n🌐 الآي بي: ${geo.ip}\n📱 الجهاز: ${navigator.platform}\n⏰ الوقت: ${new Date().toLocaleString('ar-SA')}`;
-                
-                await fetch(`https://api.telegram.org/bot8448929083:AAH_cz47n6_fc9biH4b-Xzvn-uN36QP5FW8/sendMessage`, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ chat_id: '8043613279', text: message })
-                });
-            } catch (e) { console.log("Tracking error"); }
+let lang = localStorage.getItem('lang') || "ar";
+let isLight = localStorage.getItem('theme') === 'light';
+if(isLight) document.body.classList.add('light');
+
+const texts = {
+    ar: { desc: "مبرمج محترف ومطور Meshal Hub - أفضل السكربتات الموثوقة لـ Roblox", langBtn: "English", name: "مشعل", copied: "تم النسخ!", copyBtn: "نسخ السكربت" },
+    en: { desc: "Professional Programmer & Meshal Hub Developer - Best Roblox Scripts", langBtn: "العربية", name: "Meshal", copied: "Copied!", copyBtn: "Copy Script" }
+};
+
+function applyLang() {
+    document.documentElement.dir = lang === "ar" ? "rtl" : "ltr";
+    document.getElementById("desc").innerText = texts[lang].desc;
+    document.getElementById("hero-name").innerText = texts[lang].name;
+    document.querySelectorAll("[data-ar]").forEach(el => {
+        el.textContent = el.getAttribute('data-' + lang);
+    });
+    localStorage.setItem('lang', lang);
+}
+
+function toggleLang() { lang = lang === "ar" ? "en" : "ar"; applyLang(); }
+
+function toggleTheme() { 
+    document.body.classList.toggle("light"); 
+    localStorage.setItem('theme', document.body.classList.contains('light') ? 'light' : 'dark');
+}
+
+function copyScript(content, btn) {
+    navigator.clipboard.writeText(content);
+    const originalText = btn.innerHTML;
+    btn.innerHTML = `<i class="fa-solid fa-check"></i> ${texts[lang].copied}`;
+    btn.style.background = "#2ecc71";
+    btn.style.color = "white";
+    setTimeout(() => {
+        btn.innerHTML = originalText;
+        btn.style.background = "";
+        btn.style.color = "";
+    }, 2000);
+}
+
+function copyDiscord(el) {
+    navigator.clipboard.writeText("95or");
+    const p = el.querySelector("p");
+    const oldText = p.innerText;
+    p.innerText = texts[lang].copied;
+    setTimeout(() => { p.innerText = oldText; }, 2000);
+}
+
+if (window.innerWidth > 480) {
+    particlesJS("particles-js", {
+        particles: {
+            number: { value: window.innerWidth < 768 ? 25 : 55 },
+            color: { value: "#7b5cff" },
+            opacity: { value: 0.2 },
+            move: { enable: true, speed: 1.2 },
+            line_linked: { enable: true, color: "#7b5cff", opacity: 0.1 }
         }
-        window.addEventListener('load', sendVisitorData);
-
-        let lang = localStorage.getItem('lang') || "ar";
-        const texts = {
-            ar: { desc: "مبرمج محترف ومطور Meshal Hub - أفضل السكربتات الموثوقة لـ Roblox", copied: "تم النسخ!" },
-            en: { desc: "Professional Programmer & Meshal Hub Developer - Best Roblox Scripts", copied: "Copied!" }
-        };
-
-        function toggleLang() {
-            lang = lang === "ar" ? "en" : "ar";
-            document.documentElement.dir = lang === "ar" ? "rtl" : "ltr";
-            document.getElementById("desc").innerText = texts[lang].desc;
-            localStorage.setItem('lang', lang);
-        }
-
-        function toggleTheme() { document.body.classList.toggle("light"); }
-
-        function copyScript(content, btn) {
-            navigator.clipboard.writeText(content);
-            const oldText = btn.innerHTML;
-            btn.innerHTML = `<i class="fa-solid fa-check"></i> ${texts[lang].copied}`;
-            setTimeout(() => { btn.innerHTML = oldText; }, 2000);
-        }
-
-        function copyDiscord(el) {
-            navigator.clipboard.writeText("95or");
-            const p = el.querySelector("p");
-            const old = p.innerText;
-            p.innerText = texts[lang].copied;
-            setTimeout(() => { p.innerText = old; }, 2000);
-        }
-
-        particlesJS("particles-js", {
-            particles: { number: { value: 50 }, color: { value: "#7b5cff" }, opacity: { value: 0.2 }, move: { enable: true, speed: 1.5 } }
-        });
-    </script>
+    });
+}
+applyLang();
+</script>
 </body>
 </html>
