@@ -4,11 +4,13 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     
-    <title>7oo | Meshal Hub</title>
-    <meta name="description" content="مشعل (7oo) - مطور سكربتات Meshal Hub لـ Roblox وأنظمة الأتمتة.">
-    <meta property="og:title" content="7oo | Meshal Hub Scripts">
-    <meta property="og:description" content="Professional Roblox Scripts | Shoot The Boss & Aura Tower">
+    <title>7oo</title>
+    <meta name="description" content="موقع 7oo هو موقع شخصي خاص بمالكة و افكارة | 7oo website is a personal website for its owner and his ideas">
+    
+    <meta property="og:title" content="7oo">
+    <meta property="og:description" content="موقع 7oo هو موقع شخصي خاص بمالكة و افكارة | 7oo website is a personal website for its owner and his ideas">
     <meta property="og:type" content="website">
+    <meta property="og:image" content="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR_xNJD4s-pLywK6vwE8EYuG_f9JzlvfQQA7U6ytafA5D6nX1io3pnDgl6utlqLDnNY4zvwBk7KKtE2-ImEFLKk">
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -49,8 +51,6 @@
         }
 
         .logo { font-size: 26px; font-weight: 800; color: var(--primary); text-decoration: none; }
-        .logo span { font-weight: 300; font-size: 18px; color: var(--text-dim); margin-right: 8px; }
-
         nav { display: flex; gap: 20px; }
         nav a { text-decoration: none; color: var(--text); font-weight: 600; font-size: 15px; transition: var(--transition); }
         nav a:hover { color: var(--primary); }
@@ -67,7 +67,6 @@
         .hero { text-align: center; min-height: 70vh; display: flex; flex-direction: column; justify-content: center; align-items: center; }
         .hero h1 { font-size: clamp(3rem, 12vw, 5.5rem); font-weight: 800; }
         .hero h1 span.highlight { color: var(--primary); }
-        .hero h1 span.name-tag { font-weight: 300; font-size: 0.4em; color: var(--text-dim); margin-right: 10px; }
 
         .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 25px; margin-top: 40px; }
         .card { background: var(--card-bg); padding: 40px 30px; border-radius: 24px; border: 1px solid rgba(255,255,255,0.05); transition: var(--transition); text-align: center; }
@@ -100,7 +99,7 @@
     <div id="particles-js"></div>
     <header>
         <div class="menu-toggle" onclick="toggleMenu()"><i class="fas fa-bars"></i></div>
-        <a href="#" class="logo">7oo <span id="logo-name">مشعل</span></a>
+        <a href="#" class="logo">7oo</a>
         <nav id="nav-menu">
             <a href="#home" data-ar="الرئيسية" data-en="Home" onclick="toggleMenu()">الرئيسية</a>
             <a href="#scripts" data-ar="السكربتات" data-en="Scripts" onclick="toggleMenu()">السكربتات</a>
@@ -113,8 +112,8 @@
     </header>
 
     <section id="home" class="hero" data-aos="zoom-out">
-        <h1><span class="highlight">7oo</span><span class="name-tag" id="hero-name">مشعل</span></h1>
-        <p id="desc">مبرمج محترف ومطور Meshal Hub - أفضل السكربتات الموثوقة لـ Roblox</p>
+        <h1><span class="highlight">7oo</span></h1>
+        <p id="desc">موقع 7oo هو موقع شخصي خاص بمالكة و افكارة</p>
     </section>
 
     <section id="scripts" data-aos="fade-up">
@@ -207,8 +206,8 @@
         if(isLight) document.body.classList.add('light');
 
         const texts = {
-            ar: { desc: "مبرمج محترف ومطور Meshal Hub - أفضل السكربتات الموثوقة لـ Roblox", langBtn: "English", name: "مشعل", copied: "تم النسخ!", copyBtn: "نسخ السكربت" },
-            en: { desc: "Professional Programmer & Meshal Hub Developer - Best Roblox Scripts", langBtn: "العربية", name: "Meshal", copied: "Copied!", copyBtn: "Copy Script" }
+            ar: { desc: "موقع 7oo هو موقع شخصي خاص بمالكة و افكارة", langBtn: "English", copied: "تم النسخ!", copyBtn: "نسخ السكربت" },
+            en: { desc: "7oo website is a personal website for its owner and his ideas", langBtn: "العربية", copied: "Copied!", copyBtn: "Copy Script" }
         };
 
         function updateThemeBtn() {
@@ -221,8 +220,6 @@
             document.documentElement.dir = lang === "ar" ? "rtl" : "ltr";
             document.getElementById("desc").innerText = texts[lang].desc;
             document.getElementById("lang-btn").innerText = texts[lang].langBtn;
-            document.getElementById("logo-name").innerText = texts[lang].name;
-            document.getElementById("hero-name").innerText = texts[lang].name;
             updateThemeBtn();
             document.querySelectorAll("[data-ar]").forEach(el => el.textContent = el.getAttribute(`data-${lang}`));
             localStorage.setItem('lang', lang);
